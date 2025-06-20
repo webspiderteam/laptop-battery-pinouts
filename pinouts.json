@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "brand": "Dell",
+    "model": "XPS 13",
+    "pinout": "1: GND, 2: SDA, ..."
+  }
+]

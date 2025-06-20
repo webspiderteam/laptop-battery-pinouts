@@ -1,0 +1,39 @@
+name: Auto Merge Pinout Submissions
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Runs daily at 2:00 UTC
+  workflow_dispatch:      # Allows manual trigger
+
+jobs:
+  merge-pinouts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch and merge pinout submissions
+        run: python merge_pinouts.py
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add pinouts.json
+          git commit -m "Auto-merge new community pinout submissions" || echo "No changes to commit"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: Auto-merge new community pinout submissions
+          title: '[Auto] Merge new community pinout submissions'
+          body: 'This PR was created automatically by GitHub Actions to merge new pinout submissions.'
+          branch: auto/merge-pinouts

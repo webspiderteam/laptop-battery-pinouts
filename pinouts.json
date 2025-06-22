@@ -24,5 +24,11 @@
     "model": "XPS",
     "pinout": "11\r\n22\r\n33",
     "notes": "note test"
+  },
+  {
+    "brand": "lenovo",
+    "model": "ideapad",
+    "pinout": "test",
+    "notes": "test"
   }
 ]

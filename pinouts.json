@@ -13,5 +13,10 @@
     "brand": "Test",
     "model": "Test new",
     "pinout": "1\r\n2\r\n3"
+  },
+  {
+    "brand": "Test",
+    "model": "Test 2",
+    "pinout": "12\r\n12\r\n22"
   }
 ]

@@ -1,2 +1,12 @@
 [
+  {
+    "brand": "test",
+    "model": "Test Model",
+    "pinout": "pin1 gnd\r\npin2 sda\r\npin3 scl\r\npin4 Vcc"
+  },
+  {
+    "brand": "tes2",
+    "model": "modet test",
+    "pinout": "bbb"
+  }
 ]

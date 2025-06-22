@@ -49,11 +49,13 @@ if new_count > 0:
         print(f"Deleted: {file}")
     subprocess.run(["git", "add", "pinouts.json"], cwd=REPO_PATH, check=True)
     subprocess.run(["git", "add", "submissions"], cwd=REPO_PATH, check=True)
+    subprocess.run(["git", "config", "user.email", "pinout-bot@users.noreply.github.com"], cwd=REPO_PATH, check=True)
+    subprocess.run(["git", "config", "user.name", "Pinout Bot"], cwd=REPO_PATH, check=True)
     subprocess.run(["git", "commit", "-m", "Automated daily merge of new pinouts"], cwd=REPO_PATH, check=True)
     subprocess.run(["git", "push"], cwd=REPO_PATH, check=True)
     print(f"Total new pinouts merged and cleaned up: {new_count}")
 else:
-    print("No new pinouts to merge.")
+    print("No new pinouts to merge.") 
 
 # --- STEP 5: (Optional) Auto-merge PRs that only add a new submission file ---
 if GITHUB_TOKEN:

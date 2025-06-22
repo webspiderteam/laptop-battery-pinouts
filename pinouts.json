@@ -18,5 +18,11 @@
     "brand": "Test",
     "model": "Test 2",
     "pinout": "12\r\n12\r\n22"
+  },
+  {
+    "brand": "Dell",
+    "model": "XPS",
+    "pinout": "11\r\n22\r\n33",
+    "notes": "note test"
   }
 ]

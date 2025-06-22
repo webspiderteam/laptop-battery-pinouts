@@ -35,6 +35,9 @@ if GITHUB_TOKEN:
 else:
     print("GITHUB_TOKEN not set, skipping PR auto-merge.")
 
+# Pull again to get any just-merged submission files
+subprocess.run(["git", "pull"], cwd=REPO_PATH, check=True)
+
 # --- STEP 3: Load existing pinouts ---
 if os.path.exists(PINOUTS_FILE):
     with open(PINOUTS_FILE, "r", encoding="utf-8") as f:
